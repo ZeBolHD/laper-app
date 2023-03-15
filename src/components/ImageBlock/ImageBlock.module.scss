@@ -1,0 +1,11 @@
+.imageBlock {
+  @apply w-full mt-10;
+
+  &:first-child {
+    @apply mt-0;
+  }
+
+  .image {
+    @apply rounded-2xl object-cover;
+  }
+}
