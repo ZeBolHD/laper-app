@@ -3,19 +3,23 @@ import ContentLoader from "react-content-loader";
 
 import styles from "./ImageSkeleton.module.scss";
 
-const ImageSkeleton: React.FC = () => {
-  const randomHeight = Math.random() > 0.5 ? "800" : "500";
+interface ImageSkeletonProps {
+  size: number;
+}
+
+const ImageSkeleton: React.FC<ImageSkeletonProps> = ({ size }) => {
+  console.log(size);
   return (
     <div className={styles.skeleton_parent}>
       <ContentLoader
         className={styles.skeleton}
         speed={1.5}
         width={"800"}
-        height={randomHeight}
+        height={size}
         backgroundColor="#d1d1d1"
         foregroundColor="#ecebeb"
       >
-        <rect x="0" y="0" width="800" height={randomHeight} />
+        <rect x="0" y="0" width="800" height={size} />
       </ContentLoader>
     </div>
   );

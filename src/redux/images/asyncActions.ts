@@ -3,14 +3,14 @@ import ky from "ky";
 
 export const fetchImages = createAsyncThunk(
   "images/fetchImagesStatus",
-  async () => {
+  async (sizes: number[]) => {
     let imageArr = [];
-    for (let i: number = 0; i < 12; i++) {
-      const randomHeight = Math.random() > 0.5 ? "500" : "800";
-      const randomPic = (Math.random() * 1000) / 12;
+    for (let i: number = 0; i < 10; i++) {
+      const randomPic = i;
+      console.log(randomPic);
       imageArr.push(
         ky.get(
-          `https://source.unsplash.com/random/800x${randomHeight}/?sig=${randomPic}`
+          `https://source.unsplash.com/random/800x${sizes[i]}/?&sig=${randomPic}`
         )
       );
     }
