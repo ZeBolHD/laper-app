@@ -1,9 +1,5 @@
 .imageBlock {
-  @apply w-full mt-10;
-
-  &:first-child {
-    @apply mt-0;
-  }
+  @apply w-full;
 
   .image {
     @apply rounded-2xl object-cover;

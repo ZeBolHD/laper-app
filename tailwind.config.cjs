@@ -9,7 +9,9 @@ module.exports = {
         DEFAULT: "ease-in-out",
       },
       colors: {
-        test: "#43302b",
+        main: "#676F9D",
+        bgLight: "#FFFFFF",
+        bgDark: "#2D3250",
       },
     },
   },

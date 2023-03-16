@@ -1,0 +1,34 @@
+.main {
+  @apply h-[80px] w-full bg-main rounded-b-2xl flex  px-16;
+
+  .container {
+    @apply w-full flex items-center;
+
+    .logo {
+      img {
+        @apply h-[34px];
+      }
+    }
+
+    nav {
+      @apply ml-auto;
+
+      ul {
+        @apply flex h-full;
+
+        li {
+          @apply h-full;
+
+          &:first-child {
+            @apply mr-[40px];
+          }
+
+          a {
+            @apply h-[35px] w-[130px] flex justify-center items-center text-main bg-bgLight rounded-2xl
+            border-2 border-bgLight hover:bg-main hover:text-bgLight duration-300;
+          }
+        }
+      }
+    }
+  }
+}

@@ -3,19 +3,17 @@ import ky from "ky";
 
 export const fetchImages = createAsyncThunk(
   "images/fetchImagesStatus",
-  async (sizes: number[]) => {
+  async (searchValue: string) => {
     let imageArr = [];
-    for (let i: number = 0; i < 10; i++) {
+    for (let i: number = 0; i < 12; i++) {
       const randomPic = i;
-      console.log(randomPic);
       imageArr.push(
         ky.get(
-          `https://source.unsplash.com/random/800x${sizes[i]}/?&sig=${randomPic}`
+          `https://source.unsplash.com/random/500x500/?${searchValue}&sig=${randomPic}`
         )
       );
     }
     imageArr = (await Promise.all(imageArr)).map((item) => item.url);
-    console.log(imageArr);
     return imageArr;
   }
 );

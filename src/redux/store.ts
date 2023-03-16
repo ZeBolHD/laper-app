@@ -1,10 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
+
 import images from "./images/slice";
+import filter from "./filter/slice";
 
 export const store = configureStore({
   reducer: {
     images,
+    filter,
   },
 });
 

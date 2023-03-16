@@ -3,23 +3,18 @@ import ContentLoader from "react-content-loader";
 
 import styles from "./ImageSkeleton.module.scss";
 
-interface ImageSkeletonProps {
-  size: number;
-}
-
-const ImageSkeleton: React.FC<ImageSkeletonProps> = ({ size }) => {
-  console.log(size);
+const ImageSkeleton: React.FC = () => {
   return (
     <div className={styles.skeleton_parent}>
       <ContentLoader
         className={styles.skeleton}
         speed={1.5}
-        width={"800"}
-        height={size}
+        width="500"
+        height="500"
         backgroundColor="#d1d1d1"
         foregroundColor="#ecebeb"
       >
-        <rect x="0" y="0" width="800" height={size} />
+        <rect x="0" y="0" width="500" height="500" />
       </ContentLoader>
     </div>
   );

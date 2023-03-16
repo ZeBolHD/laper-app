@@ -1,8 +1,5 @@
 .skeleton_parent {
-  @apply mt-10 overflow-hidden rounded-xl;
-  &:first-child {
-    @apply mt-0;
-  }
+  @apply overflow-hidden rounded-xl;
   .skeleton {
     @apply m-0 w-full h-full;
   }

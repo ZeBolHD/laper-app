@@ -8,25 +8,29 @@ import { fetchImages } from "../../redux/images/asyncActions";
 import { useAppDispatch } from "../../redux/store";
 import { selectImagesUrl } from "../../redux/images/selectors";
 import ImageSkeleton from "../../components/ImageSkeleton";
+import { selectFilter } from "../../redux/filter/selectors";
 
 const Home: React.FC = () => {
   const { imageUrlArr, status } = useSelector(selectImagesUrl);
+
   const dispatch = useAppDispatch();
 
-  const sizes: number[] = [...new Array(10)].map(() =>
-    Math.random() > 0.5 ? 500 : 800
-  );
+  const { searchValue } = useSelector(selectFilter);
 
   React.useEffect(() => {
-    dispatch(fetchImages(sizes));
+    dispatch(fetchImages(""));
   }, []);
+
+  React.useEffect(() => {
+    dispatch(fetchImages(searchValue));
+  }, [searchValue]);
 
   const images = imageUrlArr.map((url, index) => (
     <ImageBlock imageUrl={url} key={index} />
   ));
 
   const skeletons = [...new Array(10)].map((_, index) => (
-    <ImageSkeleton key={index} size={sizes[index]} />
+    <ImageSkeleton key={index} />
   ));
 
   return (
@@ -41,7 +45,6 @@ const Home: React.FC = () => {
         ) : (
           images
         )}
-        {/* {skeletons} */}
       </div>
     </div>
   );

@@ -1,0 +1,29 @@
+.search {
+  @apply ml-16 flex items-center relative;
+
+  .search_icon {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+
+    width: 20px;
+    height: 20px;
+  }
+
+  .search_icon_clear {
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+
+    right: 8px;
+    width: 30px;
+    height: 30px;
+
+    path {
+      stroke: #676f9d;
+    }
+  }
+  input {
+    @apply h-[35px] w-[300px] px-10 text-main rounded-2xl outline-main;
+  }
+}

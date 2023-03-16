@@ -1,4 +1,4 @@
-export interface IImagesState {
+export interface ImagesState {
   imageUrlArr: string[];
   status: Status;
 }

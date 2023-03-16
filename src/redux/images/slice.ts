@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { fetchImages } from "./asyncActions";
-import { IImagesState, Status } from "./types";
+import { ImagesState, Status } from "./types";
 
-const initialState: IImagesState = {
+const initialState: ImagesState = {
   imageUrlArr: [""],
   status: Status.LOADING,
 };
