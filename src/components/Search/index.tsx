@@ -8,6 +8,7 @@ import { setSearchValue } from "../../redux/filter/slice";
 
 const Search: React.FC = () => {
   const [value, setValue] = React.useState<string>("");
+  const inputRef = React.useRef(null);
 
   const dispatch = useAppDispatch();
 
@@ -48,6 +49,7 @@ const Search: React.FC = () => {
       </svg>
 
       <input
+        ref={inputRef}
         value={value}
         onChange={onChangeInput}
         type="text"

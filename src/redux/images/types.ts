@@ -1,7 +1,12 @@
 export interface ImagesState {
-  imageUrlArr: string[];
+  imageUrlArr: ImageType[];
   status: Status;
 }
+
+export type ImageType = {
+  url: string;
+  status: Status;
+};
 
 export enum Status {
   LOADING = "loading",

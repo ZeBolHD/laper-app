@@ -1,5 +1,5 @@
 .search {
-  @apply ml-16 flex items-center relative;
+  @apply ml-16 flex items-center relative max-[425px]:mx-auto max-[425px]:mt-10;
 
   .search_icon {
     position: absolute;
@@ -24,6 +24,6 @@
     }
   }
   input {
-    @apply h-[35px] w-[300px] px-10 text-main rounded-2xl outline-main;
+    @apply h-[35px] w-[300px] px-10 text-main rounded-2xl outline-main max-[425px]:h-[40px];
   }
 }

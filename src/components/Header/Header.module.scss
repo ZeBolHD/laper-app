@@ -1,31 +1,33 @@
 .main {
-  @apply h-[80px] w-full bg-main rounded-b-2xl flex  px-16;
+  @apply h-[80px] w-full bg-main rounded-b-2xl flex  px-16 
+  max-[425px]:h-full max-[425px]:pt-8 max-[425px]:pb-3 max-[425px]:px-0;
 
   .container {
-    @apply w-full flex items-center;
+    @apply w-full flex items-center max-[425px]:flex-col;
 
     .logo {
       img {
-        @apply h-[34px];
+        @apply h-[34px] max-[425px]:mx-auto;
       }
     }
 
     nav {
-      @apply ml-auto;
+      @apply ml-auto max-[425px]:ml-0 max-[425px]:mt-10 max-[425px]:w-[80%];
 
       ul {
-        @apply flex h-full;
+        @apply flex h-full justify-between;
 
         li {
           @apply h-full;
 
           &:first-child {
-            @apply mr-[40px];
+            @apply mr-[40px] max-[425px]:mr-0;
           }
 
           a {
             @apply h-[35px] w-[130px] flex justify-center items-center text-main bg-bgLight rounded-2xl
-            border-2 border-bgLight hover:bg-main hover:text-bgLight duration-300;
+            border-2 border-bgLight hover:bg-main hover:text-bgLight duration-300
+            max-[425px]:h-[40px];
           }
         }
       }
