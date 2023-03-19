@@ -1,4 +1,5 @@
 import React from "react";
+import ImageSkeleton from "../ImageSkeleton";
 import styles from "./ImageBlock.module.scss";
 
 interface IImageBlock {
@@ -6,26 +7,27 @@ interface IImageBlock {
 }
 
 const ImageBlock: React.FC<IImageBlock> = ({ imageUrl }) => {
-  let testRef = React.useRef<URL>();
-
-  if (imageUrl) {
-    testRef.current = new URL(imageUrl);
-  }
-
   return (
-    <div className={styles.imageBlock}>
-      <a
-        href={`https://images.unsplash.com${testRef.current?.pathname}?&fit=max`}
-        target="_blank"
-      >
-        <img
-          className={styles.image}
-          src={imageUrl}
-          onLoad={() => console.log("image loaded")}
-          alt="Loading..."
-        />
-      </a>
-    </div>
+    <>
+      {imageUrl ? (
+        <a
+          className={styles.imageBlock}
+          href={`https://images.unsplash.com/${new URL(imageUrl).pathname.slice(
+            1
+          )}?&fit=max`}
+          target="_blank"
+        >
+          <img
+            className={styles.image}
+            src={imageUrl}
+            onLoad={() => console.log("image loaded")}
+            alt="Loading..."
+          />
+        </a>
+      ) : (
+        <ImageSkeleton />
+      )}
+    </>
   );
 };
 

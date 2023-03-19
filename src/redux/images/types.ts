@@ -13,3 +13,8 @@ export enum Status {
   ERROR = "error",
   SUCCESS = "success",
 }
+
+export interface SearchParams {
+  searchValue: string;
+  imageCount: number;
+}

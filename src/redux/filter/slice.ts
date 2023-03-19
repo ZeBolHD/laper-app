@@ -3,6 +3,7 @@ import { FilterState } from "./types";
 
 const initialState: FilterState = {
   searchValue: "",
+  imageCount: 18,
 };
 
 const filterSlice = createSlice({
@@ -12,9 +13,17 @@ const filterSlice = createSlice({
     setSearchValue(state, action: PayloadAction<string>) {
       state.searchValue = action.payload;
     },
+    setImageCount(state, action: PayloadAction<number>) {
+      state.imageCount = action.payload;
+    },
+    resetFilter(state) {
+      state.imageCount = 15;
+      state.searchValue = "";
+    },
   },
 });
 
-export const { setSearchValue } = filterSlice.actions;
+export const { setSearchValue, setImageCount, resetFilter } =
+  filterSlice.actions;
 
 export default filterSlice.reducer;

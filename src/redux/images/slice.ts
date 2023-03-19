@@ -16,24 +16,32 @@ const imagesSlice = createSlice({
       state.imageUrlArr = [];
       state.status = Status.LOADING;
     }),
+      builder.addCase(fetchImages.rejected, (state) => {
+        state.status = Status.ERROR;
+        state.imageUrlArr = [];
+      }),
       builder.addCase(
         fetchImages.fulfilled,
         (state, action: PayloadAction<ImageType[]>) => {
           state.imageUrlArr.push(...action.payload);
           state.status = Status.SUCCESS;
         }
-      );
-    builder.addCase(fetchMoreImages.pending, (state) => {
-      console.log("loading more images...");
-      state.status = Status.LOADING;
-    }),
+      ),
+      builder.addCase(fetchMoreImages.pending, (state) => {
+        console.log("loading more images...");
+        state.status = Status.LOADING;
+      }),
       builder.addCase(
         fetchMoreImages.fulfilled,
         (state, action: PayloadAction<ImageType[]>) => {
           state.status = Status.SUCCESS;
           state.imageUrlArr.push(...action.payload);
         }
-      );
+      ),
+      builder.addCase(fetchMoreImages.rejected, (state) => {
+        state.imageUrlArr = [];
+        state.status = Status.ERROR;
+      });
   },
 });
 

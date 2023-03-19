@@ -3,22 +3,30 @@ import styles from "./Header.module.scss";
 
 import logoSvg from "../../assets/logo.svg";
 import Search from "../Search";
+import { Link, useLocation } from "react-router-dom";
 
 const Header: React.FC = () => {
+  const location = useLocation();
+
   return (
     <header className={styles.main}>
       <div className={styles.container}>
-        <div className={styles.logo}>
+        <Link to={"/"} className={styles.logo}>
           <img src={logoSvg} alt="" />
-        </div>
-        <Search />
+        </Link>
+        {location.pathname === "/" && <Search />}
+
         <nav>
           <ul>
             <li>
-              <a href="#">Favorites</a>
+              <Link to={"/favorites"}>
+                <div>Favorites</div>
+              </Link>
             </li>
             <li>
-              <a href="#">Sign in</a>
+              <Link to={"/login"}>
+                <div>Sign in</div>
+              </Link>
             </li>
           </ul>
         </nav>

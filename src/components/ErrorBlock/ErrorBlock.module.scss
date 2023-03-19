@@ -1,0 +1,16 @@
+.block {
+  @apply w-[400px] rounded-2xl mx-auto  bg-main text-white p-6 flex flex-col items-center text-center;
+
+  h2 {
+    @apply text-3xl font-bold;
+  }
+
+  p {
+    @apply mt-6 text-lg;
+  }
+
+  button {
+    @apply mt-6 h-[40px] w-[150px] flex justify-center items-center text-main bg-bgLight rounded-2xl
+    border-2 border-bgLight hover:bg-main hover:text-bgLight duration-300;
+  }
+}

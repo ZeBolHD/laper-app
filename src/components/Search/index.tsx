@@ -20,8 +20,12 @@ const Search: React.FC = () => {
   );
 
   const onChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value);
-    updateSearchValue(event.target.value);
+    const englishSearchValue = event.target.value.replace(
+      /[^A-Za-z-" "]/gi,
+      ""
+    );
+    setValue(englishSearchValue);
+    updateSearchValue(englishSearchValue);
   };
 
   const clearSearchValue = () => {
