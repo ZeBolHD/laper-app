@@ -36,6 +36,7 @@ const imagesSlice = createSlice({
         (state, action: PayloadAction<ImageType[]>) => {
           state.status = Status.SUCCESS;
           state.imageUrlArr.push(...action.payload);
+          console.log(state.imageUrlArr.length);
         }
       ),
       builder.addCase(fetchMoreImages.rejected, (state) => {

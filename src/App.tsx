@@ -1,8 +1,8 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-import Header from "./components/Header";
 import MainLayout from "./layouts/MainLayout";
+import Favorites from "./pages/Favorites";
 import Home from "./pages/Home";
 
 const App: React.FC = () => {
@@ -10,7 +10,7 @@ const App: React.FC = () => {
     <Routes>
       <Route path="/" element={<MainLayout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/favorites" />
+        <Route path="/favorites" element={<Favorites />} />
         <Route path="/login" />
       </Route>
     </Routes>

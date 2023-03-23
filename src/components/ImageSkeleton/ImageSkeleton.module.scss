@@ -1,6 +1,6 @@
 .skeleton_parent {
-  @apply overflow-hidden rounded-xl;
+  @apply overflow-hidden rounded-2xl aspect-square;
   .skeleton {
-    @apply m-0 w-full h-full;
+    @apply m-0;
   }
 }

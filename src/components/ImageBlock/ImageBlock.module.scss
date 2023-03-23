@@ -1,7 +1,22 @@
 .imageBlock {
-  @apply w-full;
+  @apply w-full overflow-hidden rounded-2xl aspect-square relative bg-black;
+
+  .like {
+    @apply opacity-0 absolute right-[20px] top-[20px] w-14 h-14 flex items-center justify-center 
+    bg-main rounded-2xl cursor-pointer duration-300;
+  }
+
+  &:hover {
+    .like {
+      @apply visible opacity-100 z-50;
+    }
+
+    .image {
+      @apply max-w-[110%] w-[110%] opacity-70;
+    }
+  }
 
   .image {
-    @apply rounded-2xl object-cover;
+    @apply object-cover transition-all duration-300;
   }
 }

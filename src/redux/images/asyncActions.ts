@@ -5,7 +5,7 @@ import { ImageType, SearchParams, Status } from "./types";
 
 const getImages = async (params: SearchParams): Promise<ImageType[]> => {
   let errorCount: number = 0;
-  console.log("555");
+  console.log("Fetching images...");
   const { searchValue, imageCount } = params;
   let imageArr = [];
   for (let i: number = 0; i < imageCount; i++) {

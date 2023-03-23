@@ -16,6 +16,7 @@ import { resetFilter } from "../../redux/filter/slice";
 
 const Home: React.FC = () => {
   const [isLoading, setIsLoading] = React.useState(true);
+  const loadingRef = React.useRef<boolean>(false);
 
   const { imageUrlArr, status } = useSelector(selectImagesUrl);
   const { searchValue, imageCount } = useSelector(selectFilter);
@@ -25,9 +26,10 @@ const Home: React.FC = () => {
   const scrollHandler = () => {
     if (
       window.innerHeight + document.documentElement.scrollTop >=
-        document.documentElement.scrollHeight - 200 &&
-      !isLoading
+        document.documentElement.scrollHeight - 150 &&
+      !loadingRef.current
     ) {
+      loadingRef.current = true;
       const fetchParams: FilterState = { searchValue, imageCount };
       dispatch(fetchMoreImages(fetchParams));
     }
@@ -37,6 +39,7 @@ const Home: React.FC = () => {
     if (status == "loading") {
       setIsLoading(true);
     } else {
+      loadingRef.current = false;
       setIsLoading(false);
     }
   }, [status]);
@@ -45,7 +48,7 @@ const Home: React.FC = () => {
     window.addEventListener("scroll", scrollHandler);
 
     return () => window.removeEventListener("scroll", scrollHandler);
-  }, [isLoading]);
+  }, []);
 
   React.useEffect(() => {
     const fetchParams: FilterState = { searchValue, imageCount };
@@ -73,6 +76,7 @@ const Home: React.FC = () => {
         <ErrorBlock errorButtonHandler={errorButtonHandler} />
       ) : (
         <div className={styles.wallpapers_block}>
+          {/* {skeletons} */}
           {images}
           {isLoading && skeletons}
         </div>
