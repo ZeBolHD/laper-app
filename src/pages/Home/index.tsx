@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import styles from "./Home.module.scss";
 
@@ -11,15 +11,17 @@ import { useAppDispatch } from "../../redux/store";
 import { selectImagesUrl } from "../../redux/images/selectors";
 import { selectFilter } from "../../redux/filter/selectors";
 
-import { FilterState } from "../../redux/filter/types";
-import { resetFilter } from "../../redux/filter/slice";
+import { FilterCategoryType, FilterState } from "../../redux/filter/types";
+import { resetFilter, setCategory } from "../../redux/filter/slice";
+import Categories from "../../components/Categories";
 
 const Home: React.FC = () => {
   const [isLoading, setIsLoading] = React.useState(true);
+
   const loadingRef = React.useRef<boolean>(false);
 
   const { imageUrlArr, status } = useSelector(selectImagesUrl);
-  const { searchValue, imageCount } = useSelector(selectFilter);
+  const { searchValue, imageCount, category } = useSelector(selectFilter);
 
   const dispatch = useAppDispatch();
 
@@ -30,7 +32,7 @@ const Home: React.FC = () => {
       !loadingRef.current
     ) {
       loadingRef.current = true;
-      const fetchParams: FilterState = { searchValue, imageCount };
+      const fetchParams: FilterState = { searchValue, imageCount, category };
       dispatch(fetchMoreImages(fetchParams));
     }
   };
@@ -42,18 +44,22 @@ const Home: React.FC = () => {
       loadingRef.current = false;
       setIsLoading(false);
     }
+
+    if (status == "error") {
+      window.removeEventListener("scroll", scrollHandler);
+    }
   }, [status]);
 
   React.useEffect(() => {
     window.addEventListener("scroll", scrollHandler);
 
     return () => window.removeEventListener("scroll", scrollHandler);
-  }, []);
+  }, [category]);
 
   React.useEffect(() => {
-    const fetchParams: FilterState = { searchValue, imageCount };
+    const fetchParams: FilterState = { searchValue, imageCount, category };
     dispatch(fetchImages(fetchParams));
-  }, [searchValue]);
+  }, [searchValue, category]);
 
   const images = imageUrlArr.map((image, index) => (
     <ImageBlock imageUrl={image.url} key={index} />
@@ -66,20 +72,35 @@ const Home: React.FC = () => {
   const errorButtonHandler = () => {
     dispatch(resetFilter());
 
-    const fetchParams: FilterState = { searchValue, imageCount };
+    const fetchParams: FilterState = {
+      searchValue: "",
+      imageCount,
+      category: "",
+    };
     dispatch(fetchImages(fetchParams));
   };
 
+  const onChangeCategory = (categoryName: FilterCategoryType) => {
+    if (categoryName == category) {
+      dispatch(setCategory(""));
+    } else {
+      dispatch(setCategory(categoryName));
+    }
+  };
+
   return (
-    <div className={styles.content}>
+    <div className={status === "error" ? styles.error : ""}>
       {status === "error" ? (
         <ErrorBlock errorButtonHandler={errorButtonHandler} />
       ) : (
-        <div className={styles.wallpapers_block}>
-          {/* {skeletons} */}
-          {images}
-          {isLoading && skeletons}
-        </div>
+        <>
+          <Categories onChangeCategory={onChangeCategory} value={category} />
+          <div className={styles.wallpapers_block}>
+            {/* {skeletons} */}
+            {images}
+            {isLoading && skeletons}
+          </div>
+        </>
       )}
     </div>
   );

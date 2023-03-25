@@ -1,3 +1,5 @@
+import { FilterCategoryType } from "../filter/types";
+
 export interface ImagesState {
   imageUrlArr: ImageType[];
   status: Status;
@@ -17,4 +19,5 @@ export enum Status {
 export interface SearchParams {
   searchValue: string;
   imageCount: number;
+  category: FilterCategoryType;
 }

@@ -7,7 +7,6 @@ import styles from "./Favorites.module.scss";
 
 const Favorites: React.FC = () => {
   const { items } = useSelector(selectFavorites);
-  console.log(items);
 
   const images = items.map((image) => (
     <ImageBlock imageUrl={image.url} key={image.url} isAdded={true} />

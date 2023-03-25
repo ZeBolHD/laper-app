@@ -5,9 +5,13 @@ import style from "./Search.module.scss";
 
 import { useAppDispatch } from "../../redux/store";
 import { setSearchValue } from "../../redux/filter/slice";
+import { useSelector } from "react-redux";
+import { selectFilter } from "../../redux/filter/selectors";
 
-const Search: React.FC = () => {
-  const [value, setValue] = React.useState<string>("");
+const Search: React.FC = React.memo(() => {
+  const { searchValue } = useSelector(selectFilter);
+
+  const [value, setValue] = React.useState<string>(searchValue);
   const inputRef = React.useRef(null);
 
   const dispatch = useAppDispatch();
@@ -87,6 +91,6 @@ const Search: React.FC = () => {
       )}
     </div>
   );
-};
+});
 
 export default Search;

@@ -6,15 +6,15 @@ import { ImageType, SearchParams, Status } from "./types";
 const getImages = async (params: SearchParams): Promise<ImageType[]> => {
   let errorCount: number = 0;
   console.log("Fetching images...");
-  const { searchValue, imageCount } = params;
+  const { searchValue, imageCount, category } = params;
   let imageArr = [];
   for (let i: number = 0; i < imageCount; i++) {
     const randomPic = i;
-    imageArr.push(
-      ky.get(
-        `https://source.unsplash.com/random/600x600/?${searchValue}&sig=${randomPic}`
-      )
-    );
+    const imgURL = `https://source.unsplash.com/random/600x600/?${
+      category + " " + searchValue
+    }&sig=${randomPic}`;
+    console.log(imgURL);
+    imageArr.push(ky.get(imgURL));
   }
   imageArr = await Promise.allSettled(imageArr).then((results) =>
     results.map((response) => {

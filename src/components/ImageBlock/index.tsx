@@ -16,9 +16,11 @@ interface IImageBlock {
 const ImageBlock: React.FC<IImageBlock> = ({ imageUrl, isAdded = false }) => {
   const [isFavorite, setIsFavorite] = React.useState(isAdded);
 
-  const fullImgURL = `https://images.unsplash.com/${new URL(
-    imageUrl
-  ).pathname.slice(1)}?&fit=max`;
+  const fullImgURL =
+    imageUrl &&
+    `https://images.unsplash.com/${new URL(imageUrl).pathname.slice(
+      1
+    )}?&fit=max`;
 
   const dispatch = useAppDispatch();
 
@@ -79,7 +81,10 @@ const ImageBlock: React.FC<IImageBlock> = ({ imageUrl, isAdded = false }) => {
           </a>
         </div>
       ) : (
-        <ImageSkeleton />
+        <div className={styles.error}>
+          <h3>Не удалось загрузить картинку 🙁</h3>
+          <ImageSkeleton />
+        </div>
       )}
     </>
   );

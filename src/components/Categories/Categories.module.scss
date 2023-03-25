@@ -1,0 +1,26 @@
+.categories {
+  @apply w-full h-full overflow-hidden mb-8;
+
+  .active {
+    @apply bg-main text-bgLight;
+  }
+
+  ul {
+    @apply flex w-full overflow-auto box-content rounded-2xl p-0;
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0; /* Remove scrollbar space */
+      background: transparent; /* Optional: just make scrollbar invisible */
+    }
+
+    li {
+      @apply h-[35px] min-w-[130px] mr-4 cursor-pointer flex justify-center items-center text-main bg-bgLight rounded-2xl
+            border-2 border-bgLight hover:bg-main hover:text-bgLight duration-300
+            max-[425px]:h-[40px];
+
+      &:last-child {
+        @apply mr-0;
+      }
+    }
+  }
+}

@@ -24,6 +24,6 @@
     }
   }
   input {
-    @apply h-[35px] w-[300px] px-10 text-main rounded-2xl outline-main max-[425px]:h-[40px];
+    @apply h-[35px] w-[300px] px-10 text-main max-lg:w-[200px] rounded-2xl outline-main max-[425px]:h-[40px];
   }
 }

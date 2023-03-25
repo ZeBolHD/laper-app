@@ -9,6 +9,12 @@
   &:hover {
     .like {
       @apply visible opacity-100 z-50;
+
+      &:hover {
+        path {
+          fill: #ffffff;
+        }
+      }
     }
 
     .image {

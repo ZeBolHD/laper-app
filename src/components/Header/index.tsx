@@ -17,7 +17,6 @@ const Header: React.FC = () => {
   React.useEffect(() => {
     if (isMounted.current) {
       const json = JSON.stringify(items);
-
       localStorage.setItem("favorites", json);
     }
     isMounted.current = true;
