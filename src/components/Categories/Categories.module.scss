@@ -15,8 +15,8 @@
 
     li {
       @apply h-[35px] min-w-[130px] mr-4 cursor-pointer flex justify-center items-center text-main bg-bgLight rounded-2xl
-            border-2 border-bgLight hover:bg-main hover:text-bgLight duration-300
-            max-[425px]:h-[40px];
+      border-2 border-bgLight hover:bg-main hover:text-bgLight duration-300
+      max-[425px]:h-[40px];
 
       &:last-child {
         @apply mr-0;

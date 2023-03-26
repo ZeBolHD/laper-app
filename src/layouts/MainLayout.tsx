@@ -7,12 +7,13 @@ import Header from "../components/Header";
 
 const MainLayout: React.FC = () => {
   return (
-    <div>
+    <>
       <Header />
       <div className={styles.content}>
+        <div id="portal"></div>
         <Outlet />
       </div>
-    </div>
+    </>
   );
 };
 

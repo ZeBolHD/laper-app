@@ -1,0 +1,39 @@
+.content {
+  @apply w-[100%] h-[100%] fixed z-40 duration-500;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+
+  .modal {
+    @apply w-[70%] h-[650px] z-50 absolute flex-col justify-center px-20 pt-14 pb-20 bg-main/90 rounded-2xl 
+    left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%];
+
+    .close_button {
+      @apply w-10 h-10 absolute right-5 top-5 bg-bgLight flex items-center justify-center rounded-full
+      cursor-pointer duration-300 hover:bg-main;
+
+      svg {
+        position: relative;
+        top: 1.5px;
+        height: 80%;
+        width: 80%;
+      }
+    }
+
+    .preview {
+      @apply w-[100%] h-[100%] bg-slate-200 overflow-hidden rounded-2xl block;
+      img {
+        @apply object-cover h-[100%] w-full rounded-2xl;
+      }
+    }
+
+    .buttons {
+      @apply ml-auto mr-0 flex align-super w-fit;
+
+      .btn {
+        @apply h-[40px] w-fit px-4 ml-5 mr-0 cursor-pointer flex justify-center items-center text-main bg-bgLight rounded-2xl
+        border-2 border-bgLight hover:bg-main hover:text-bgLight duration-300 mt-5 
+        max-[425px]:h-[40px];
+      }
+    }
+  }
+}

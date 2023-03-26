@@ -23,6 +23,6 @@
   }
 
   .image {
-    @apply object-cover transition-all duration-300;
+    @apply object-cover transition-all duration-300 cursor-pointer;
   }
 }

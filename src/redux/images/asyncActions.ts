@@ -13,7 +13,6 @@ const getImages = async (params: SearchParams): Promise<ImageType[]> => {
     const imgURL = `https://source.unsplash.com/random/600x600/?${
       category + " " + searchValue
     }&sig=${randomPic}`;
-    console.log(imgURL);
     imageArr.push(ky.get(imgURL));
   }
   imageArr = await Promise.allSettled(imageArr).then((results) =>

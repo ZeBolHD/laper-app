@@ -9,12 +9,12 @@ const ImageSkeleton: React.FC = () => {
       <ContentLoader
         className={styles.skeleton}
         speed={1.5}
-        width="650"
-        height="650"
+        width="600"
+        height="600"
         backgroundColor="#d1d1d1"
         foregroundColor="#ecebeb"
       >
-        <rect x="0" y="0" width="650" height="650" />
+        <rect x="0" y="0" width="600" height="600" />
       </ContentLoader>
     </div>
   );

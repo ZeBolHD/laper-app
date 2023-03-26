@@ -29,7 +29,6 @@ const Header: React.FC = () => {
           <img src={logoSvg} alt="" />
         </Link>
         {location.pathname === "/" && <Search />}
-
         <nav>
           <ul>
             <li>
