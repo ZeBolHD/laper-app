@@ -1,6 +1,5 @@
 import React from "react";
 import { createPortal } from "react-dom";
-import ImageSkeleton from "../ImageSkeleton";
 
 import styles from "./ImagePortal.module.scss";
 
@@ -21,10 +20,6 @@ const ImagePortal: React.FC<ImagePortalProps> = ({
   onClickLike,
   isFavorite,
 }) => {
-  if (!isOpen) {
-    return null;
-  }
-
   const [isLoaded, setIsLoaded] = React.useState(false);
 
   React.useEffect(() => {
@@ -36,7 +31,6 @@ const ImagePortal: React.FC<ImagePortalProps> = ({
   }, []);
 
   const onClickClose = () => {
-    document.body.style.overflow = "auto";
     setIsOpen(false);
   };
 

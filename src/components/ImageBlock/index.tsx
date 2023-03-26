@@ -41,13 +41,15 @@ const ImageBlock: React.FC<IImageBlock> = ({ imageUrl, isAdded = false }) => {
     <>
       {imageUrl ? (
         <>
-          <ImagePortal
-            isOpen={isPortalOpen}
-            imageUrl={imageUrl}
-            setIsOpen={setIsPortalOpen}
-            onClickLike={onClickLike}
-            isFavorite={isFavorite}
-          />
+          {isPortalOpen && (
+            <ImagePortal
+              isOpen={isPortalOpen}
+              imageUrl={imageUrl}
+              setIsOpen={setIsPortalOpen}
+              onClickLike={onClickLike}
+              isFavorite={isFavorite}
+            />
+          )}
 
           <div className={styles.imageBlock}>
             <button onClick={onClickLike} className={styles.like}>
