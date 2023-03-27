@@ -43,7 +43,6 @@ const ImageBlock: React.FC<IImageBlock> = ({ imageUrl, isAdded = false }) => {
         <>
           {isPortalOpen && (
             <ImagePortal
-              isOpen={isPortalOpen}
               imageUrl={imageUrl}
               setIsOpen={setIsPortalOpen}
               onClickLike={onClickLike}

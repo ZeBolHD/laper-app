@@ -6,7 +6,6 @@ import styles from "./ImagePortal.module.scss";
 const portal = document.getElementById("portal") as HTMLElement;
 
 interface ImagePortalProps {
-  isOpen: boolean;
   setIsOpen: (bool: boolean) => void;
   isFavorite: boolean;
   imageUrl: string;
@@ -14,7 +13,6 @@ interface ImagePortalProps {
 }
 
 const ImagePortal: React.FC<ImagePortalProps> = ({
-  isOpen,
   imageUrl,
   setIsOpen,
   onClickLike,

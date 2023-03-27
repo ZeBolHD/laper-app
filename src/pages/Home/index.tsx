@@ -54,7 +54,7 @@ const Home: React.FC = () => {
     window.addEventListener("scroll", scrollHandler);
 
     return () => window.removeEventListener("scroll", scrollHandler);
-  }, [category]);
+  }, [searchValue, category]);
 
   React.useEffect(() => {
     const fetchParams: FilterState = { searchValue, imageCount, category };
