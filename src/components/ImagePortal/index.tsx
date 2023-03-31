@@ -36,7 +36,7 @@ const ImagePortal: React.FC<ImagePortalProps> = ({
     imageUrl &&
     `https://images.unsplash.com/${new URL(imageUrl).pathname.slice(
       1
-    )}?&fit=crop&w=1600`;
+    )}?&fit=crop&w=1200`;
 
   const fullImgURL =
     imageUrl &&

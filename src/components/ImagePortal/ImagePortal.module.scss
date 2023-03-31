@@ -4,7 +4,7 @@
   backdrop-filter: blur(5px);
 
   .modal {
-    @apply w-[70%] h-[650px] z-50 absolute flex-col justify-center px-20 pt-14 pb-20 bg-main/90 rounded-2xl 
+    @apply w-[60%] h-[650px] z-50 absolute flex-col justify-center px-20 pt-14 pb-20 bg-main/90 rounded-2xl 
     left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%];
 
     .close_button {
@@ -14,6 +14,7 @@
       svg {
         position: relative;
         top: 1.5px;
+        left: 0.5px;
         height: 80%;
         width: 80%;
       }

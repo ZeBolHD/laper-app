@@ -95,11 +95,11 @@ const Home: React.FC = () => {
       ) : (
         <>
           <Categories onChangeCategory={onChangeCategory} value={category} />
-          <div className={styles.wallpapers_block}>
+          <ul className={styles.wallpapers_block}>
             {/* {skeletons} */}
             {images}
             {isLoading && skeletons}
-          </div>
+          </ul>
         </>
       )}
     </div>

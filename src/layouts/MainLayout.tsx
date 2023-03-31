@@ -10,7 +10,6 @@ const MainLayout: React.FC = () => {
     <>
       <Header />
       <div className={styles.content}>
-        <div id="portal"></div>
         <Outlet />
       </div>
     </>

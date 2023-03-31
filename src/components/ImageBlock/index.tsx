@@ -50,7 +50,7 @@ const ImageBlock: React.FC<IImageBlock> = ({ imageUrl, isAdded = false }) => {
             />
           )}
 
-          <div className={styles.imageBlock}>
+          <li className={styles.imageBlock}>
             <button onClick={onClickLike} className={styles.like}>
               {isFavorite ? (
                 <svg
@@ -89,7 +89,7 @@ const ImageBlock: React.FC<IImageBlock> = ({ imageUrl, isAdded = false }) => {
               onLoad={() => console.log("image loaded")}
               alt="Loading..."
             />
-          </div>
+          </li>
         </>
       ) : (
         <div className={styles.error}>
