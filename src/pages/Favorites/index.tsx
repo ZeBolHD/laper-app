@@ -12,7 +12,7 @@ const Favorites: React.FC = () => {
     <ImageBlock imageUrl={image.url} key={image.url} isAdded={true} />
   ));
 
-  return <div className={styles.wallpapers_block}>{images}</div>;
+  return <ul className={styles.wallpapers_block}>{images}</ul>;
 };
 
 export default Favorites;
