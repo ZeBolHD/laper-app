@@ -1,5 +1,5 @@
 .search {
-  @apply ml-16 flex items-center relative max-[425px]:mx-auto max-[425px]:mt-10;
+  @apply ml-16 flex items-center relative max-sm:mx-auto max-sm:mt-10;
 
   .search_icon {
     position: absolute;

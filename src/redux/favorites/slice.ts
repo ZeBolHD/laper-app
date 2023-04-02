@@ -10,7 +10,7 @@ const favoritesSlice = createSlice({
   reducers: {
     addFavoriteItem(state, action: PayloadAction<FavoritesItem>) {
       if (!state.items.find((item) => item.url === action.payload.url)) {
-        state.items = [...state.items, action.payload];
+        state.items = [action.payload, ...state.items];
       }
     },
     removeFavoritesItem(state, action: PayloadAction<FavoritesItem>) {

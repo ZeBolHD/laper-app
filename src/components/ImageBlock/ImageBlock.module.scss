@@ -8,7 +8,7 @@
 
   &:hover {
     .like {
-      @apply visible opacity-100 z-50;
+      @apply visible opacity-100 z-10;
 
       &:hover {
         path {
